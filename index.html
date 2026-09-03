@@ -1,7 +1,266 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rong Li — GEOG594 / BDA594</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F5EF;
+    --ink:#1F2A24;
+    --ink-soft:#4B554E;
+    --line:#D8D2C2;
+    --water:#2B6777;
+    --water-deep:#1D4B57;
+    --ochre:#B9863C;
+    --card:#FFFFFF;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Inter", sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px);
+    background-size: 100% 44px;
+    background-attachment: local;
+  }
+
+  .wrap{
+    max-width:700px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- Header / hero ---------- */
+
+  header.hero{
+    padding-top:72px;
+    padding-bottom:56px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .contour{
+    width:100%;
+    height:auto;
+    display:block;
+    margin-bottom:36px;
+  }
+
+  .hero h1{
+    font-family:"Lora", serif;
+    font-weight:600;
+    font-size:2.6rem;
+    line-height:1.2;
+    margin:0 0 10px 0;
+    color:var(--ink);
+  }
+
+  .hero .role{
+    font-family:"Lora", serif;
+    font-style:italic;
+    font-size:1.15rem;
+    color:var(--water-deep);
+    margin:0 0 22px 0;
+  }
+
+  .hero p.lede{
+    max-width:52ch;
+    color:var(--ink-soft);
+    font-size:1.02rem;
+    margin:0;
+  }
+
+  .meta-line{
+    margin-top:28px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    font-size:0.92rem;
+  }
+
+  .meta-line a{
+    color:var(--water-deep);
+    text-decoration:none;
+    border-bottom:1px solid var(--water-deep);
+    padding-bottom:1px;
+  }
+  .meta-line a:hover{ color:var(--ochre); border-color:var(--ochre); }
+
+  .meta-line span.tag{
+    color:var(--ink-soft);
+  }
+
+  /* ---------- Section scaffolding ---------- */
+
+  section{
+    padding:52px 0;
+    border-bottom:1px solid var(--line);
+  }
+
+  section:last-of-type{ border-bottom:none; }
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:26px;
+  }
+
+  .section-head .index{
+    font-family:"Lora", serif;
+    font-style:italic;
+    color:var(--water);
+    font-size:1.1rem;
+    flex-shrink:0;
+  }
+
+  .section-head h2{
+    font-family:"Lora", serif;
+    font-weight:600;
+    font-size:1.5rem;
+    margin:0;
+    color:var(--ink);
+  }
+
+  p{
+    margin:0 0 16px 0;
+    color:var(--ink-soft);
+    max-width:64ch;
+  }
+  p:last-child{ margin-bottom:0; }
+
+  /* ---------- Cards for dataset / book ---------- */
+
+  .entry{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left:3px solid var(--water);
+    padding:24px 26px;
+    margin-bottom:20px;
+  }
+  .entry.book{ border-left-color:var(--ochre); }
+
+  .entry .name{
+    font-family:"Lora", serif;
+    font-weight:600;
+    font-size:1.18rem;
+    margin:0 0 6px 0;
+    color:var(--ink);
+  }
+
+  .entry .source{
+    font-size:0.88rem;
+    color:var(--ink-soft);
+    margin-bottom:14px;
+  }
+
+  .entry .source a{
+    color:var(--water-deep);
+    text-decoration:none;
+    word-break:break-word;
+  }
+  .entry.book .source a{ color:var(--ochre); }
+  .entry .source a:hover{ text-decoration:underline; }
+
+  .entry p{ margin-bottom:0; }
+
+  /* ---------- Footer ---------- */
+
+  footer{
+    padding:40px 0 64px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  footer p{
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin:0;
+  }
+
+  footer a{
+    color:var(--water-deep);
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+  }
+  footer a:hover{ border-color:var(--water-deep); }
+
+  @media (max-width:600px){
+    header.hero{ padding-top:48px; }
+    .hero h1{ font-size:2.1rem; }
+    section{ padding:40px 0; }
+  }
+</style>
+</head>
 <body>
-<h1>My Data Science Interests</h1>
-<p>Dataset: [name] - <a href="URL">link</a></p>
-<p>Book: [deedds] - <a href="URL">link</a></p>
+
+<div class="wrap">
+
+  <header class="hero">
+    <svg class="contour" viewBox="0 0 700 90" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Topographic contour line motif">
+      <path d="M0 60 C 60 20, 120 20, 170 45 C 220 70, 260 70, 300 40 C 340 10, 390 10, 430 35 C 470 60, 520 60, 560 30 C 600 0, 650 0, 700 25"
+            fill="none" stroke="#2B6777" stroke-width="1.4" opacity="0.55"/>
+      <path d="M0 75 C 60 40, 130 40, 180 62 C 230 84, 270 84, 310 58 C 350 32, 400 32, 440 55 C 480 78, 530 78, 570 50 C 610 22, 655 22, 700 45"
+            fill="none" stroke="#B9863C" stroke-width="1.2" opacity="0.4"/>
+    </svg>
+
+    <h1>Rong Li</h1>
+    <p class="role">Graduate Student, Geography &amp; Big Data Analytics — San Diego State University</p>
+    <p class="lede">This page was built for GEOG594 / BDA594, Web Exercise 1, to introduce one open dataset and one freely available book that I selected while exploring GitHub's data-science resources.</p>
+
+    <div class="meta-line">
+      <a href="https://sdsu.instructure.com/courses/210607">Course site — GEOG594/BDA594</a>
+      <span class="tag">Fall 2026</span>
+    </div>
+  </header>
+
+  <section id="dataset">
+    <div class="section-head">
+      <span class="index">01</span>
+      <h2>A dataset worth knowing</h2>
+    </div>
+    <p>Selected from the <em>awesome-datascience</em> list of open data sets on GitHub, hosted within the AWS Registry of Open Data.</p>
+
+    <div class="entry">
+      <p class="name">Common Crawl</p>
+      <p class="source">Registry of Open Data on AWS — <a href="https://registry.opendata.aws/commoncrawl/" target="_blank" rel="noopener">registry.opendata.aws/commoncrawl</a></p>
+      <p>Common Crawl is an open archive of web-page content, text extracts, and metadata gathered from billions of pages, refreshed with a new snapshot roughly every month since 2008. Its scale and openness make it a common foundation for training natural-language-processing systems, for tracking how information changes across the web over time, and for identifying data that has been unintentionally exposed on public sites. I chose it because it shows, very concretely, what "volume" and "velocity" mean in Big Data — a dataset too large for one machine, growing every month.</p>
+    </div>
+  </section>
+
+  <section id="book">
+    <div class="section-head">
+      <span class="index">02</span>
+      <h2>A book worth reading</h2>
+    </div>
+    <p>Selected from the <em>free-data-science-books</em> list on GitHub.</p>
+
+    <div class="entry book">
+      <p class="name">Introduction to Information Retrieval</p>
+      <p class="source">Christopher D. Manning &amp; Hinrich Sch&uuml;tze (Stanford University), Prabhakar Raghavan &mdash; Cambridge University Press &mdash; <a href="https://nlp.stanford.edu/IR-book/" target="_blank" rel="noopener">nlp.stanford.edu/IR-book</a></p>
+      <p>The book moves from foundational ideas — indexing, Boolean search — toward statistical ranking and web-scale retrieval, with worked examples throughout. I am drawn to it because so much of Big Data work is really about search: finding the relevant fraction of a massive, unstructured collection such as Common Crawl, quickly and accurately.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Built for GEOG594 / BDA594, Web Exercise 1 &mdash; San Diego State University</p>
+    <p><a href="https://sdsu.instructure.com/courses/210607">Back to course</a></p>
+  </footer>
+
+</div>
+
 </body>
 </html>
